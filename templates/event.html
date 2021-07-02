@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HW6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/static/script.js" type="text/javascript"></script>
+    <style>
+      #searchBox {
+        background-color: #FAFBF8;
+        width: 550px;
+        border:  3px solid #D1D1D1;
+        margin: auto;
+      }
+
+      h1 {
+      	font-family: Times New Roman;
+      	margin: 0;
+      	font-weight: normal;
+      }
+
+      #wrapper {
+      	padding-left: 5px;
+      	font-weight: bold;
+      	display: block;
+      	padding-bottom: ;
+      }
+
+      .tooltip {
+        max-width: none;
+        white-space: nowrap;
+      }
+
+      #noResults {
+        text-align: center;
+        border: 2px solid #DDDDDD;
+        background-color: #F0F0F0;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 670px;
+      }
+
+      table, th, td {
+        border: 2px solid #DDDDDD;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        font-size: 18px;
+        border-collapse: collapse;
+        padding: 3px;
+      }
+
+      a:hover {
+        color: darkgray;
+        cursor: pointer;
+      }
+
+      #details {
+        text-align: left;
+        display: inline-block;
+        float: left;
+      }
+
+      a {
+        text-decoration:  none;
+        color: black;
+      }
+
+      #mapDiv {
+        float: left;
+        display: inline-block;
+      }
+
+      #mapImg {
+        height: auto;
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body onload="getGeolocation();">
+  	 <div id="searchBox">
+  	 		<h1 style="text-align: center; font-style: italic">Events Search</h1>
+  	 		<hr style="width: 98%; color: darkgray">
+  	 		<div id="wrapper">
+  	 			<label for="keyword">Keyword</label>
+  	 			<input type="search" id="keyword" name="keyword" data-toggle="tooltip" class="tooltip" title="Please fill out this field." data-placement="bottom center">
+  	 			<div style="display: block">
+  	 				<label for="category" style="display: inline-block;">Category</label>
+  	 				<select id="categoryList">
+  	 					<option value="">Default</option>
+  	 					<option value="KZFzniwnSyZfZ7v7nJ">Music</option>
+  	 					<option value="KZFzniwnSyZfZ7v7nE">Sports</option>
+  	 					<option value="KZFzniwnSyZfZ7v7na">Arts & Theatre</option>
+  	 					<option value="KZFzniwnSyZfZ7v7nn">Film</option>
+  	 					<option value="KZFzniwnSyZfZ7v7n1">Miscellaneous</option>
+  	 				</select>
+  	 			</div>
+  	 			<label for="distance">Distance (miles)</label>
+  	 			<input type="search" id="distance" name="distance" placeholder="10">
+  	 			<label for="from">from</label>
+  	 			<div style="display: inline">
+  	 			<input type="radio" id="here" name="from" value="here" checked="checked" onclick="disableLoc();">
+  	 			<label for="here" style="font-weight: normal">Here</label><br>
+  	 			<input type="radio" id="locationButton" name="from" value="location" style="margin-left:320px" onclick="enableLoc();">
+  	 			<input type="search" for="location" id="location" name="location" placeholder="location" data-toggle="tooltip" class="tooltip" title="Please fill out this field." data-placement="bottom center" disabled>
+  	 			</div>
+  	 			<button onclick="clickSearch();" id="search" type="search" style="margin-left: 60px">Search</button>
+  	 			<button type="clear" onclick="clearEverything();">Clear</button>
+  	 			<div style="margin-bottom: 15px"></div>
+  	 		</div>
+  	 </div>
+
+     <div id="results">
+      <!-- Filled in using javascript -->
+     </div>
+
+     <div id="detailWrapper" style="text-align: center; width: 800px; margin: auto">
+      <!-- Filled in using javascript -->
+     </div>
+  </body>
+</html>
